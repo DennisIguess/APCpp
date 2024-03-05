@@ -25,6 +25,11 @@ if (WIN32 AND USE_TLS)
     add_subdirectory(${CMAKE_BINARY_DIR}/mbedtls-3.4.0 mbedtls_bin)
 endif (WIN32 AND USE_TLS)
 
+# On OSX, use openssl instead of apple encryption headers (they cause build to fail)
+if (APPLE AND USE_TLS)
+    set(USE_OPEN_SSL ON)
+endif (APPLE AND USE_TLS)
+
 set(IXWEBSOCKET_INSTALL OFF CACHE BOOL "" FORCE)
 add_subdirectory(IXWebSocket)
 include_directories(IXWebSocket)
