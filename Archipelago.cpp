@@ -67,7 +67,7 @@ void (*setreplyfunc)(AP_SetReply) = nullptr;
 // Serverdata Management
 std::map<std::string,AP_DataType> map_serverdata_typemanage;
 AP_GetServerDataRequest resync_serverdata_request;
-size_t last_item_idx = 0;
+uint64_t last_item_idx = 0;
 
 // Singleplayer Seed Info
 std::string sp_save_path;
